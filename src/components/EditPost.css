@@ -1,0 +1,36 @@
+.edit-post__author__name,.edit-post__contacts__email,
+.edit-post__contacts__phone {
+  width: 300px;
+  height: 30px;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 20px;
+}
+.edit-post__content{
+  display: flex;
+  flex-direction: column;
+}
+.edit-post__content__title {
+  height: 30px;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 10px;
+}
+.edit-post__content__text {
+  height: 100px;
+  resize: none;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 10px;
+}
+.edit-post__contacts__email{
+  margin-right: 20px;
+}
+.edit-btn {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #0B3157;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  width: 150px;
+  height: 30px;
+  border-radius: 5px;
+  cursor: pointer;
+}

@@ -1,0 +1,8 @@
+.post__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.remove {
+  margin-right: 20px;
+}
