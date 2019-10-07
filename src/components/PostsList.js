@@ -6,14 +6,20 @@ import "./PostsList.css";
 const Post = props => (
   <div className="post">
     <div className="post__header">
-      <img src="" alt=""></img>
-      <Link to={"/name=" + props.post.authorName} className="post__authorName">{props.post.authorName}</Link>
+      <img src={require("../img/1.png")} alt=""></img>
+      <Link to={"/name=" + props.post.authorName} className="post__authorName">
+        {props.post.authorName}
+      </Link>
     </div>
     <div className="post__content">
       <Link to={"/post=" + props.post._id} className="post__title">
         {props.post.title}
       </Link>
-      <div className="post__text">{props.post.text.length > 255 ? props.post.text.slice(0, 255).concat("...") :  props.post.text}</div>
+      <div className="post__text">
+        {props.post.text.length > 255
+          ? props.post.text.slice(0, 255).concat("...")
+          : props.post.text}
+      </div>
     </div>
     <div className="post__footer">
       <ul className="post__contacts">
@@ -32,7 +38,8 @@ const Post = props => (
 export default class PostsList extends Component {
   constructor(props) {
     super(props);
-    this.state = { posts: [] };
+    this.onChangeCount = this.onChangeCount.bind(this);
+    this.state = { posts: [], countPage: 10 };
   }
 
   componentDidMount() {
@@ -59,11 +66,17 @@ export default class PostsList extends Component {
 
   postList() {
     return this.state.posts.map((currentPost, i) => {
-      if (i < 10) {
+      if (i < this.state.countPage) {
         return <Post post={currentPost} key={i} />;
       } else {
         return null;
       }
+    });
+  }
+
+  onChangeCount(e) {
+    this.setState({
+      countPage: e.target.value
     });
   }
 
@@ -75,7 +88,14 @@ export default class PostsList extends Component {
             <p>+</p>
           </Link>
         </div>
-
+        <div className="post-counter">
+          <div>Количество постов: </div>
+          <input
+            type="number"
+            value={this.state.countPage}
+            onChange={this.onChangeCount}
+          />
+        </div>
         {this.postList()}
       </div>
     );

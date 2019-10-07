@@ -5,7 +5,7 @@ import axios from "axios";
 const Post = props => (
   <div className="post">
     <div className="post__header">
-      <img src="" alt=""></img>
+      <img src={require('../img/1.png')} alt=""></img>
       <div className="post__authorName">{props.post.authorName}</div>
     </div>
     <div className="post__content">

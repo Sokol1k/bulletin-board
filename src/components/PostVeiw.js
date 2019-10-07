@@ -39,7 +39,7 @@ export default class PostVeiw extends Component {
       <div className="container">
         <div className="post">
           <div className="post__header">
-            <img src="" alt=""></img>
+            <img src={require('../img/1.png')} alt=""></img>
             <div className="post__authorName">{this.state.authorName}</div>
           </div>
           <div className="post__content">

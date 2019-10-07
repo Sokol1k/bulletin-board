@@ -50,16 +50,47 @@ export default class CreatePost extends Component {
   onSubmit(e) {
     e.preventDefault();
     const obj = {
+      authorName: this.state.authorName,
       title: this.state.title,
       text: this.state.text,
-      authorName: this.state.authorName,
       email: this.state.email,
       phone: this.state.phone
     };
+
+    for (var key in obj) {
+      if (obj[key] === "") {
+        switch (key) {
+          case "authorName": {
+            alert("Введите имя");
+            break;
+          }
+          case "title": {
+            alert("Введите заголовок");
+            break;
+          }
+          case "text": {
+            alert("Введите текст");
+            break;
+          }
+          case "email": {
+            alert("Введите почту");
+            break;
+          }
+          case "phone": {
+            alert("Введите номер телефона");
+            break;
+          }
+          default:
+            break;
+        }
+        return;
+      }
+    }
+
     axios
       .post("http://localhost:4000/posts/create", obj)
       .then(res => console.log(res.data));
-
+    
     this.props.history.push("/");
   }
 

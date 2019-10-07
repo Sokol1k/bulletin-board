@@ -89,7 +89,6 @@ export default class EditPost extends Component {
       <div className="container">
         <form onSubmit={this.onSubmit} className="edit-post post">
           <div className="edit-post__author">
-            {/* <input type="file" alt="" className="edit-post__author__image" /> */}
             <input
               type="text"
               className="edit-post__author__name"
