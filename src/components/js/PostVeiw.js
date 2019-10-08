@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import "./PostVeiw.css";
+import "../css/PostVeiw.css";
 
 export default class PostVeiw extends Component {
   constructor(props) {

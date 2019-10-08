@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import "./PostsList.css";
+import "../css/PostsList.css";
 
 const Post = props => (
   <div className="post">

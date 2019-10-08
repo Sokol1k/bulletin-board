@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./App.css";
 
-import PostsList from "./components/PostsList";
-import PostVeiw from "./components/PostVeiw";
-import PostAuthor from "./components/PostAuthor"
-import EditPost from "./components/EditPost";
-import RemovePost from "./components/RemovePost";
-import CreatePost from "./components/CreatePost";
+import PostsList from "./components/js/PostsList";
+import PostVeiw from "./components/js/PostVeiw";
+import PostAuthor from "./components/js/PostAuthor";
+import EditPost from "./components/js/EditPost";
+import RemovePost from "./components/js/RemovePost";
+import CreatePost from "./components/js/CreatePost";
 
 class App extends Component {
   render() {
@@ -29,7 +29,7 @@ class App extends Component {
           <Route path="/name=:name" exact component={PostAuthor} />
           <Route path="/update/:id" exact component={EditPost} />
           <Route path="/remove/:id" exact component={RemovePost} />
-          <Route path="/create"exact component={CreatePost} />
+          <Route path="/create" exact component={CreatePost} />
         </div>
       </Router>
     );

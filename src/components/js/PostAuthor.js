@@ -5,7 +5,7 @@ import axios from "axios";
 const Post = props => (
   <div className="post">
     <div className="post__header">
-      <img src={require('../img/1.png')} alt=""></img>
+      <img src={require("../img/1.png")} alt=""></img>
       <div className="post__authorName">{props.post.authorName}</div>
     </div>
     <div className="post__content">
@@ -35,7 +35,8 @@ const Post = props => (
 export default class PostsAuthor extends Component {
   constructor(props) {
     super(props);
-    this.state = { posts: [] };
+    this.onChangeCount = this.onChangeCount.bind(this);
+    this.state = { posts: [], countPage: 10 };
   }
 
   componentDidMount() {
@@ -64,7 +65,7 @@ export default class PostsAuthor extends Component {
     let count = 0;
     return this.state.posts.map((currentPost, i) => {
       if (
-        count < 10 &&
+        count < this.state.countPage &&
         currentPost.authorName === this.props.match.params.name
       ) {
         count++;
@@ -74,7 +75,11 @@ export default class PostsAuthor extends Component {
       }
     });
   }
-
+  onChangeCount(e) {
+    this.setState({
+      countPage: e.target.value
+    });
+  }
   render() {
     return (
       <div className="container">
@@ -83,7 +88,14 @@ export default class PostsAuthor extends Component {
             <p>+</p>
           </Link>
         </div>
-
+        <div className="post-counter">
+          <div>Количество постов: </div>
+          <input
+            type="number"
+            value={this.state.countPage}
+            onChange={this.onChangeCount}
+          />
+        </div>
         {this.postList()}
       </div>
     );
