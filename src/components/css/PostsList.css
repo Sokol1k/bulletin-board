@@ -35,6 +35,11 @@
   color: #fff;
   padding-bottom: 15px;
 }
+.post__contacts li{
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
 .post__contacts li:first-child{
   color: #0B3157;
   font-weight: bold;
@@ -57,4 +62,11 @@
 .post-counter div {
   color: #0B3157;
   margin-right: 10px;
+}
+.phone,
+.mail {
+  width: 15px;
+  height: 15px;
+  fill: #fff;
+  margin-right: 5px;
 }
