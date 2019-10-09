@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
+import MaskedInput from "react-text-mask";
+import emailMask from 'text-mask-addons/dist/emailMask'
 
 export default class CreatePost extends Component {
   constructor(props) {
@@ -90,7 +92,7 @@ export default class CreatePost extends Component {
     axios
       .post("http://localhost:4000/posts/create", obj)
       .then(res => console.log(res.data));
-    
+
     this.props.history.push("/");
   }
 
@@ -99,10 +101,9 @@ export default class CreatePost extends Component {
       <div className="container">
         <form onSubmit={this.onSubmit} className="edit-post post">
           <div className="edit-post__author">
-            {/* <input type="file" alt="" className="edit-post__author__image" /> */}
             <input
               type="text"
-              className="edit-post__author__name"
+              className="text edit-post__author__name"
               placeholder="Имя"
               value={this.state.authorName}
               onChange={this.onChangePostAuthorName}
@@ -111,31 +112,33 @@ export default class CreatePost extends Component {
           <div className="edit-post__content">
             <input
               type="text"
-              className="edit-post__content__title"
+              className="text edit-post__content__title"
               placeholder="Заголовок"
               value={this.state.title}
               onChange={this.onChangePostTitle}
             />
             <textarea
               type="text"
-              className="edit-post__content__text"
+              className="text edit-post__content__text"
               placeholder="Текст"
               value={this.state.text}
               onChange={this.onChangePostText}
             />
           </div>
           <div className="edit-post__contacts">
-            <input
+            <MaskedInput
               type="text"
-              className="edit-post__contacts__email"
+              mask={emailMask}
+              className="text edit-post__contacts__email"
               placeholder="E-mail"
               value={this.state.email}
               onChange={this.onChangePostEmail}
             />
-            <input
+            <MaskedInput
+              mask={['+', '3', '8', '(', '0', /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/,'-',/\d/, /\d/]}
               type="text"
-              className="edit-post__contacts__phone"
-              placeholder="Телефон"
+              className="text edit-post__contacts__phone"
+              placeholder="+38(0##) ###-##-##"
               value={this.state.phone}
               onChange={this.onChangePostPhone}
             />

@@ -50,7 +50,7 @@ const Post = props => (
 				C350.631,303.527,350.95,285.795,340.273,275.083z"
             />
           </svg>
-          <a href="/">{props.post.phone}</a>
+          <a href={"tel:" + props.post.phone + ""}>{props.post.phone}</a>
         </li>
       </ul>
     </div>

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "../css/EditPost.css"
+import MaskedInput from "react-text-mask";
+import emailMask from 'text-mask-addons/dist/emailMask'
 
 export default class EditPost extends Component {
   constructor(props) {
@@ -114,17 +116,19 @@ export default class EditPost extends Component {
             />
           </div>
           <div className="edit-post__contacts">
-            <input
+          <MaskedInput
               type="text"
-              className="edit-post__contacts__email"
+              mask={emailMask}
+              className="text edit-post__contacts__email"
               placeholder="E-mail"
               value={this.state.email}
               onChange={this.onChangePostEmail}
             />
-            <input
+            <MaskedInput
+              mask={['+', '3', '8', '(', '0', /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/,'-',/\d/, /\d/]}
               type="text"
-              className="edit-post__contacts__phone"
-              placeholder="Телефон"
+              className="text edit-post__contacts__phone"
+              placeholder="+38(0##) ###-##-##"
               value={this.state.phone}
               onChange={this.onChangePostPhone}
             />
